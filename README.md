@@ -1,2 +1,2 @@
 # sososoy2.github.io
-yo
+(marginとpaddingの所のみ、AIを使ってしまった 便利だね)
