@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>sososoy2のホームページ</title>
-  </head>
-  <body>
-    <a href="https://sososoy2.github.io/Petit-radio-lab/">プチコンラジオライブラリ</a>
-    <a href="https://sososoy2.github.io/SMM2counter/">マリオメーカー2　みんなでバトル用カウンター</a>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>おつまみさいこう(sososoy2)のホームページ</title>
+  <style>
+    body { font-family:'Noto Sans JP',sans-serif; }
+
+    .side { background:#f0f0ff; width:300px; height:800px; }
+    .content { width:950px; height:800px; margin-left:10px; }
+    article { display:flex; }
+    .flex { display:flex; align-items:flex-start; gap:0; }
+    .flex img { width:360px; height:auto; display:block; }
+    .flex ul {
+      list-style: disc;
+      margin: 0 0 0 8px; /* 画像とくっつけたい分だけ左マージンを小さく */
+      padding: 0 0 0 1em; /* インデント調整 */
+    }
+    .flex li { margin:0 0.25em 0 0; padding:0; }
+    .flex a { display:block; margin:0.25em 0; }
+  </style>
+</head>
+<body>
+  <article>
+    <div class="side">
+      <p style="margin-left:20px;">あとでサイドバーの内容追加する</p>
+    </div>
+    <div class="content">
+      <h1 style="text-align:center">おつまみさいこうのホームページ</h1>
+      <p style="text-align:center">★★★ 最新情報 ★★★</p>
+      <hr>
+      <div class="flex">
+        <img src="./img/githubicon.png" alt="私がgithubで使用しているアイコン">
+        <ul>
+          <li>Webアプリ</li>
+          <li><a href="https://sososoy2.github.io/Petit-radio-lab/">プチコンラジオライブラリ</a></li>
+          <li><a href="https://sososoy2.github.io/SMM2counter/">マリオメーカー2　みんなでバトル用カウンター</a></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</body>
 </html>
