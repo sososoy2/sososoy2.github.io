@@ -2,45 +2,193 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>おつまみさいこう(sososoy2)のホームページ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family:'Noto Sans JP',sans-serif; }
-
-    .side { background:#f0f0ff; width:300px; height:800px; }
-    .content { width:950px; height:800px; margin-left:10px; }
-    article { display:flex; }
-    .flex { display:flex; align-items:flex-start; gap:0; }
-    .flex img { width:360px; height:auto; display:block; }
-    .flex ul {
-      list-style: disc;
-      margin: 0 0 0 8px; /* 画像とくっつけたい分だけ左マージンを小さく */
-      padding: 0 0 0 1em; /* インデント調整 */
+    :root{
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --accent:#5b8def;
+      --muted:#6b7280;
+      --max-width:1100px;
+      --radius:12px;
+      --gap:24px;
+      color-scheme: light;
     }
-    .flex li { margin:0 0.25em 0 0; padding:0; }
-    .flex a { display:block; margin:0.25em 0; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Noto Sans JP', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:linear-gradient(180deg,#f6fbff 0%,var(--bg) 100%);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 16px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: 300px 1fr;
+      gap:var(--gap);
+      align-items:start;
+    }
+
+    header{
+      grid-column:1/-1;
+      background:transparent;
+      margin-bottom:4px;
+    }
+    .site-title{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    .site-title h1{
+      margin:0;
+      font-size:1.25rem;
+      font-weight:700;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 6px 20px rgba(15,23,42,0.06);
+    }
+
+    /* Sidebar */
+    .side{
+      background:transparent;
+      padding:0;
+    }
+    .sidebar-inner{
+      padding:18px;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(91,141,239,0.06), rgba(91,141,239,0.02));
+      height:100%;
+    }
+    .sidebar-inner p{margin:0;color:var(--muted)}
+
+    /* Main content */
+    .content{
+      padding:0;
+    }
+    .hero{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .avatar{
+      flex:0 0 160px;
+      width:160px;
+      height:160px;
+      border-radius:14px;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--accent),#7cc6ff);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .meta{
+      flex:1 1 320px;
+      min-width:0;
+    }
+    .meta h2{margin:0 0 8px 0;font-size:1.1rem}
+    .meta .subtitle{color:var(--muted);margin:0 0 12px 0}
+
+    .links ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+    .links a{color:var(--accent);text-decoration:none;font-weight:500}
+    .links a:hover{text-decoration:underline}
+
+    hr.sep{border:0;height:1px;background:linear-gradient(90deg,transparent,var(--muted),transparent);margin:16px 0}
+
+    .notice{background:linear-gradient(90deg,#fffbeb,#fff);border-left:4px solid #f59e0b;padding:12px;border-radius:8px;color:#92400e}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .wrap{grid-template-columns:1fr;}
+      .site-title h1{font-size:1rem}
+      .avatar{flex:0 0 120px;width:120px;height:120px}
+      .meta{order:2}
+      .sidebar-inner{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    }
+
+    @media (max-width:480px){
+      body{padding:20px 12px}
+      .avatar{width:96px;height:96px}
+      .meta h2{font-size:1rem}
+    }
+
+    footer{grid-column:1/-1;margin-top:12px;color:var(--muted);font-size:0.9rem}
   </style>
 </head>
 <body>
-  <article>
-    <div class="side">
-      <p style="margin-left:20px;">あとでサイドバーの内容追加する</p>
-    </div>
-    <div class="content">
-      <h1 style="text-align:center">おつまみさいこうのホームページ</h1>
-      <p style="text-align:center">★★★ 最新情報 ★★★</p>
-      <hr>
-      <div class="flex">
-        <img src="https://avatars.githubusercontent.com/u/257047028" alt="私がgithubで使用しているアイコン">
-        <ul>
-          <li>Webアプリ</li>
-          <li><a href="https://sososoy2.github.io/Petit-radio-lab/">プチコンラジオライブラリ</a></li>
-          <li><del><a href="https://sososoy2.github.io/SMM2counter/">マリオメーカー2　みんなでバトル用カウンター</a></del><br>一旦非公開にしました。</li>
-          <li><a href="https://sososoy2.github.io/password-generator/">xkcd式のパスフレーズを生成する奴</a></li>
-        </ul>
-        <p>実は見にきてくれた君へ<br>実はおつまみラジオには実は特別放送があります。実は<br>実はおつラジプロジェクト内のMETA_EDIT.PRGです。実は</p>
-        
+  <div class="wrap">
+    <header>
+      <div class="card site-title">
+        <div style="width:48px;height:48px;border-radius:10px;overflow:hidden;flex:0 0 auto"><img src="https://avatars.githubusercontent.com/u/257047028" alt="site icon" style="width:48px;height:48px;object-fit:cover;display:block"></div>
+        <div>
+          <h1>おつまみさいこうのホームページ</h1>
+          <div style="color:var(--muted);font-size:0.95rem">sososoy2 • 小さな実験とWebアプリのまとめ</div>
+        </div>
       </div>
-    </div>
-  </article>
+    </header>
+
+    <aside class="side">
+      <div class="sidebar-inner card">
+        <p>あとでサイドバーの内容追加する</p>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div class="card">
+        <div class="hero">
+          <div class="avatar" aria-hidden>
+            <img src="https://avatars.githubusercontent.com/u/257047028" alt="私がgithubで使用しているアイコン">
+          </div>
+
+          <div class="meta">
+            <h2>★★★ 最新情報 ★★★</h2>
+            <p class="subtitle">ここでは小さなプロジェクトやツールを紹介しています。</p>
+
+            <div class="links">
+              <ul>
+                <li>Webアプリ</li>
+                <li><a href="https://sososoy2.github.io/Petit-radio-lab/">プチコンラジオライブラリ</a></li>
+                <li><a href="https://sososoy2.github.io/password-generator/">xkcd式のパスフレーズを生成する奴</a></li>
+                <li><del><a href="https://sososoy2.github.io/SMM2counter/">マリオメーカー2 みんなでバトル用カウンター</a></del> — 一旦非公開にしました。</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <hr class="sep">
+
+        <div style="display:grid;grid-template-columns:1fr;gap:12px;align-items:start">
+          <div class="notice">実は見にきてくれた君へ — おつまみラジオにはときどき特別放送があります。興味があればプロジェクトのページを覗いてみてください。</div>
+
+          <section>
+            <h3 style="margin:0 0 8px 0">このサイトについて</h3>
+            <p style="margin:0;color:var(--muted)">個人の技術メモやWebで公開している小さなアプリを紹介するためのページです。フィードバックや質問はGitHub上でどうぞ。</p>
+          </section>
+        </div>
+      </div>
+
+      <footer>
+        &copy; 2026 sososoy2
+      </footer>
+    </main>
+
+  </div>
 </body>
 </html>
